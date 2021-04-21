@@ -1,10 +1,10 @@
 package edu.pingpong.domain;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 import edu.pingpong.romans.domain.RomanNumber;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class RomanNumberTest {
 
@@ -16,6 +16,12 @@ public class RomanNumberTest {
         romanNumber.initRegexList();
     }
 
+    @Test
+    public void isValidTest() {
+        String testCase = "IIIY";
+        romanNumber.setRomanNumber(testCase);
+        assertFalse(romanNumber.isValidRomanNumber());
+    }
 
     @Test
     public void SymbolMTest() {
@@ -38,6 +44,8 @@ public class RomanNumberTest {
 
     @Test
     public void threeCTest() {
-
+        String testCase = "MMMCCC";
+        romanNumber.setRomanNumber(testCase);
+        assertEquals(3300, romanNumber.convertToDecimal());
     }
 }
