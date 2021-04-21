@@ -60,11 +60,19 @@ public class RomanNumber {
     }
 
     public int convertToDecimal() {
-        for (String regex : getRomanRegex().getRegexList()) {
-            Matcher regexMatcher = createMatcher(regex);
-            extractDecimalValueOfRomanNumber(regexMatcher);
+        if (isValidRomanNumber(getRomanNumber())) {
+            for (String regex : getRomanRegex().getRegexList()) {
+                Matcher regexMatcher = createMatcher(regex);
+                extractDecimalValueOfRomanNumber(regexMatcher);
+            }
+        } else {
+            System.out.println("The number: " + getRomanNumber() + " is not a valid Roman Numeral :(");
         }
         return getDecimalNumber();
+    }
+
+    public boolean isValidRomanNumber(String romanNumber) {
+        return romanNumber.matches("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
     }
 
 

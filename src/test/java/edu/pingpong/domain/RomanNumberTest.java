@@ -23,16 +23,21 @@ public class RomanNumberTest {
         romanNumber.setRomanNumber(testCase);
         assertEquals(1000, romanNumber.convertToDecimal());
 
-        testCase = "UMMU";
+        testCase = "MM";
         romanNumber.setRomanNumber(testCase);
         assertEquals(2000, romanNumber.convertToDecimal());
 
-        testCase = "UMMMU";
+        testCase = "MMM";
         romanNumber.setRomanNumber(testCase);
         assertEquals(3000, romanNumber.convertToDecimal());
 
-        testCase = "UCMU";
+        testCase = "CM";
         romanNumber.setRomanNumber(testCase);
         assertNotEquals(1000, romanNumber.convertToDecimal());
+    }
+
+    @Test
+    public void threeCTest() {
+
     }
 }
