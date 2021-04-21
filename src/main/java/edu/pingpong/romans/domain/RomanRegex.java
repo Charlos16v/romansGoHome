@@ -2,7 +2,7 @@ package edu.pingpong.romans.domain;
 
 import java.util.ArrayList;
 
-public class romanRegex {
+public class RomanRegex {
 
     private final ArrayList<String> regexList = new ArrayList<String>();
 
