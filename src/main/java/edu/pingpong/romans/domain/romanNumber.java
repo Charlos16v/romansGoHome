@@ -1,11 +1,13 @@
 package edu.pingpong.romans.domain;
 
+import java.util.regex.Matcher;
+
 public class romanNumber {
 
     private String romanNumber = null;
     private int decimalNumber = 0;
 
-    private romanRegex romanRegexList = new romanRegex();
+    private romanRegex romanRegex = new romanRegex();
 
     public romanNumber() {
     }
@@ -31,8 +33,13 @@ public class romanNumber {
         this.decimalNumber = decimalNumber;
     }
 
-    public romanRegex getRomanRegexList() {
-        return romanRegexList;
+    public romanRegex getRomanRegex() {
+        return this.romanRegex;
+    }
+
+    public void initRegexList() {
+        getRomanRegex().addRegex("(?<!C)[DM]|(?<!X)[LC](?![DM])|(?<!I)[VX](?![LC])|I(?![VX])"); // Summative Group
+        getRomanRegex().addRegex("(C[DM])|(X[LC])|(I[VX])"); // Substractive Group
     }
 
 
