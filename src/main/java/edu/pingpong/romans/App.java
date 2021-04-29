@@ -34,7 +34,7 @@ public class App {
                 clearScreen();
             } else {
                 clearScreen();
-                System.out.println("The number " + keyboardEntry + " is not a valid Roman Numeral :(");
+                System.out.println("\n The number " + keyboardEntry + " is not a valid Roman Numeral :(");
             }
         }
         clearScreen();
