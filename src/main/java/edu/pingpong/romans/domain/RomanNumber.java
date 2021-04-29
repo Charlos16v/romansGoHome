@@ -39,9 +39,15 @@ public class RomanNumber {
     }
 
     public void initRegexList() {
-        getRomanRegex().addRegex("(?<!C)[DM]|(?<!X)[LC](?![DM])|(?<!I)[VX](?![LC])|I(?![VX])"); // Summative Group
-        getRomanRegex().addRegex("(C[DM])|(X[LC])|(I[VX])"); // Substractive Group
+        getRomanRegex().addRegex("(?<!I)[VX](?![CL])|I(?![VX])|(?<!X)[CL](?![DM])|(?<!C)[DM]"); // Summative
+        //getRomanRegex().addRegex("I(?=[VX])|(?<=I)[VX]|X(?=[CL])|(?<=X)[CL]|C(?=[DM])|(?<=C)[DM]");
+        getRomanRegex().addRegex("I[XV]|X[CL]|C[DM]"); // Subtractive
     }
+
+    /*
+    (?<!I)[VX] -> X y V que no estan precedidas por I
+    I(?![VX]) -> I sueltos y que van detras de V y X
+     */
 
     private Matcher createMatcher(String regex) {
         Pattern pattern = Pattern.compile(regex);

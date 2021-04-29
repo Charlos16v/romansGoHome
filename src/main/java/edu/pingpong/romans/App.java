@@ -8,33 +8,33 @@ public class App {
 
 
     public static void main(String[] args) {
-        String entradaConfirmacion = "";
+        String confirmationEntry = "";
 
-        while (!entradaConfirmacion.equals("N")) {
+        while (!confirmationEntry.equals("N")) {
             System.out.println("========ROMAN NUMERAL TO DECIMAL!========");
             System.out.println("Type a Roman Numeral:");
-            String entradaTeclado = "";
-            Scanner entradaEscaner = new Scanner(System.in);
-            entradaTeclado = entradaEscaner.nextLine();
+            String keyboardEntry = "";
+            Scanner scannerEntry = new Scanner(System.in);
+            keyboardEntry = scannerEntry.nextLine();
 
 
             RomanNumber romanNumber = new RomanNumber();
             romanNumber.initRegexList();
-            romanNumber.setRomanNumber(entradaTeclado);
+            romanNumber.setRomanNumber(keyboardEntry);
 
             if (romanNumber.isValidRomanNumber()) {
-                System.out.println("The value of " + entradaTeclado + " in decimal is: " + romanNumber.convertToDecimal());
+                clearScreen();
+                System.out.println("\n The value of " + keyboardEntry + " in decimal is: " + romanNumber.convertToDecimal());
 
-                System.out.println("=========================================" + '\n' + '\n' + '\n');
-
-                System.out.println("========OTHER TIME?========!");
+                System.out.println("\n \n ========OTHER TIME?========!");
                 System.out.println('\n' + "Y/N");
 
-                Scanner entradaEscanerConfirmacion = new Scanner(System.in);
-                entradaConfirmacion = entradaEscanerConfirmacion.nextLine();
+                Scanner scannerEntryConfirmation = new Scanner(System.in);
+                confirmationEntry = scannerEntryConfirmation.nextLine();
                 clearScreen();
             } else {
-                System.out.println("The number " + entradaTeclado + " is not a valid Roman Numeral :(");
+                clearScreen();
+                System.out.println("The number " + keyboardEntry + " is not a valid Roman Numeral :(");
             }
         }
         clearScreen();
